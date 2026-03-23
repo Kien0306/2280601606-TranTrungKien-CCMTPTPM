@@ -49,6 +49,12 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Debug folder
+        run: ls -R
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
@@ -57,6 +63,6 @@ jobs:
         with:
           path: ./public
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
